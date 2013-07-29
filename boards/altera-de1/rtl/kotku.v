@@ -374,7 +374,7 @@ module kotku (
     .wb_ack_o (rom_ack_o)
   );
 
-  flash8 flash8 (
+  flash8_r2 flash8_r2 (
     // Wishbone slave interface
     .wb_clk_i (clk),            // Main Clock
     .wb_rst_i (rst),            // Reset Line

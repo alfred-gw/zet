@@ -31,7 +31,7 @@ module flash8_r2 (
     output reg        wb_ack_o,
 
     // Pad signals
-    output reg [22:0] flash_addr_,
+    output reg [21:0] flash_addr_,
     input      [ 7:0] flash_data_,
     output            flash_we_n_,
     output reg        flash_oe_n_,
@@ -43,7 +43,7 @@ module flash8_r2 (
   wire        op;
   wire        wr_command;
   wire        flash_addr0;
-  reg  [21:0] address;
+  reg  [20:0] address;
 
   wire        word;
   wire        op_word;
@@ -108,7 +108,7 @@ module flash8_r2 (
       if(wr_command)          // If a write was requested
         case(wb_adr_i)        // Determine which register was writen to
             `FLASH_ALO: address[15: 0] <= wb_dat_i;
-            `FLASH_AHI: address[21:16] <= wb_dat_i[5:0];
+            `FLASH_AHI: address[20:16] <= wb_dat_i[5:0];
             default:    ;     // Default
         endcase               // End of case
 
